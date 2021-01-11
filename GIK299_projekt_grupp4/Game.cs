@@ -77,6 +77,7 @@ namespace GIK299_projekt_grupp4
                 Console.WriteLine("\nYou have collected all the keys, now find the exit 'F'");
             }
             Console.WriteLine("Health: {0}", currentHero.Health);
+            
             enemy.DrawEnemies();
             currentHero.DrawHero();
 
@@ -161,8 +162,8 @@ namespace GIK299_projekt_grupp4
         }
         private void PlayerInput()
         {
-            // Gör så att inte knapptrycken buffrar upp, heron stannar när man släpper knappen
             ConsoleKey key;
+            // Gör så att inte knapptrycken buffrar upp, heron stannar när man släpper knappen
             do
             {
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
@@ -210,20 +211,10 @@ namespace GIK299_projekt_grupp4
             {
                 CheckIfInsideRoom(enemy.RoomColIndex[i, 0], enemy.RoomColIndex[i, 1], enemy.RoomRowIndex[i, 0], enemy.RoomRowIndex[i, 1], i);
             }
-            // CheckIfInsideRoom(45, 63, 40, 45, 0);
-            // CheckIfInsideRoom(18, 36, 35, 40, 1);
-            // CheckIfInsideRoom(9, 27, 30, 35, 2);
-            // CheckIfInsideRoom(54, 72, 30, 35, 3);
-            // CheckIfInsideRoom(63, 90, 25, 30, 4);
-            // CheckIfInsideRoom(27, 54, 20, 25, 5);
-            // CheckIfInsideRoom(54, 72, 15, 20, 6);
-            // CheckIfInsideRoom(45, 62, 10, 15, 7);
-            // CheckIfInsideRoom(36, 53, 5, 10, 8);
-            // CheckIfInsideRoom(72, 89, 0, 5, 9);
         }
         private void CheckIfInsideRoom(int colStart, int colFinish, int rowStart, int rowFinish, int roomIndex)
         {
-            if (currentHero.Col > colStart && currentHero.Col < colFinish && currentHero.Row > rowStart && currentHero.Row < rowFinish)
+            if (currentHero.Col >= colStart && currentHero.Col <= colFinish && currentHero.Row >= rowStart && currentHero.Row <= rowFinish)
             {
                 AttackOrRun(roomIndex);
             }
