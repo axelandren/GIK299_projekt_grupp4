@@ -51,12 +51,10 @@ namespace GIK299_projekt_grupp4
         }
         public bool IsWalkable(int col, int row)
         {
-            // Kolla om positionen ligger inom arrayen, returnerar false om den är utanför eller om rutan är upptagen av enemy
-            if (col < 0 || row < 0 || col >= cols || row >= rows || map[col, row] == "E")
+            if (col < 0 || row < 0 || col >= cols || row >= rows)
             {
                 return false;
             }
-            // Returnerar true om positionen är "öppen"
             return map[row, col] == " " || map[row, col] == "F" || map[row, col] == "K";
         }
     }

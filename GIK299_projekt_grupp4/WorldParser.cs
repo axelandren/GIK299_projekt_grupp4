@@ -10,7 +10,7 @@ namespace GIK299_projekt_grupp4
             string firstLine = lines[0]; // skapar en sträng av första raden i textdokumentet
             int rows = lines.Length;
             int cols = firstLine.Length;
-            string[,] worldArray = new string[rows, cols]; // skapar en 2d array med bestämt antal rader och kolumner
+            string[,] worldArray = new string[rows, cols];
             for (int row = 0; row < rows; row++) // loopar igenom alla rader och kolumner
             {
                 string line = lines[row];

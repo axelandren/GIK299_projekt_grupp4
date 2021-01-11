@@ -8,6 +8,10 @@ namespace GIK299_projekt_grupp4
         public int[][] ColPosition = new int[10][];
         public int[][] RowPosition = new int[10][];
         public bool[][] AliveOrDead = new bool[10][];
+        public int[,] RoomColIndex = new int[10, 2] {
+            { 46, 63 }, { 19, 36 }, { 10, 27 }, { 55, 72 }, { 64, 90 }, { 28, 54 }, { 55, 72 }, { 46, 63 }, { 37, 54 }, { 73, 90 } };
+        public int[,] RoomRowIndex = new int[10, 2] {
+            { 41, 45 }, { 36, 40 }, { 31, 35 }, { 31, 35 }, { 26, 30 }, { 21, 25 }, { 16, 20 }, { 11, 15 }, { 6, 10 }, { 1, 5 } };
         public Enemy()
         {
             enemyMarker = "E";
@@ -20,7 +24,7 @@ namespace GIK299_projekt_grupp4
         private void GetEnemyPositions()
         {
             Random rand = new Random();
-            int amountOfEnemiesInRoom = rand.Next(1, 4);
+            int amountOfEnemiesInRoom;
             for (int k = 0; k < ColPosition.Length; k++)
             {
                 amountOfEnemiesInRoom = rand.Next(1, 4);
@@ -29,59 +33,61 @@ namespace GIK299_projekt_grupp4
             }
             for (int i = 0; i < 10; i++)
             {
-                for (int j = 0; j < ColPosition[i].Length; j++) // skapar det randomiserade numret antal enemies och lagrar det i jagged-arrayen
+                for (int j = 0; j < ColPosition[i].Length; j++)
                 {
-                    if (i == 0)
-                    {
-                        ColPosition[i][j] = rand.Next(46, 63);
-                        RowPosition[i][j] = rand.Next(41, 45);
-                    }
-                    else if (i == 1)
-                    {
+                    ColPosition[i][j] = rand.Next(RoomColIndex[i, 0], RoomColIndex[i, 1]);
+                    RowPosition[i][j] = rand.Next(RoomRowIndex[i, 0], RoomRowIndex[i, 1]);
+                    // if (i == 0)
+                    // {
+                    //     ColPosition[i][j] = rand.Next(enemyRoomColIndex[j, 0], enemyRoomColIndex[j, 1]);
+                    //     RowPosition[i][j] = rand.Next(enemyRoomRowIndex[j, 0], enemyRoomRowIndex[j, 1]);
+                    // }
+                    // else if (i == 1)
+                    // {
 
-                        ColPosition[i][j] = rand.Next(19, 36);
-                        RowPosition[i][j] = rand.Next(36, 40);
-                    }
-                    else if (i == 2)
-                    {
-                        ColPosition[i][j] = rand.Next(10, 27);
-                        RowPosition[i][j] = rand.Next(31, 35);
-                    }
-                    else if (i == 3)
-                    {
-                        ColPosition[i][j] = rand.Next(55, 72);
-                        RowPosition[i][j] = rand.Next(31, 35);
-                    }
-                    else if (i == 4)
-                    {
-                        ColPosition[i][j] = rand.Next(64, 90);
-                        RowPosition[i][j] = rand.Next(26, 30);
-                    }
-                    else if (i == 5)
-                    {
-                        ColPosition[i][j] = rand.Next(28, 54);
-                        RowPosition[i][j] = rand.Next(21, 25);
-                    }
-                    else if (i == 6)
-                    {
-                        ColPosition[i][j] = rand.Next(55, 72);
-                        RowPosition[i][j] = rand.Next(16, 20);
-                    }
-                    else if (i == 7)
-                    {
-                        ColPosition[i][j] = rand.Next(46, 63);
-                        RowPosition[i][j] = rand.Next(11, 15);
-                    }
-                    else if (i == 8)
-                    {
-                        ColPosition[i][j] = rand.Next(37, 54);
-                        RowPosition[i][j] = rand.Next(6, 10);
-                    }
-                    else if (i == 9)
-                    {
-                        ColPosition[i][j] = rand.Next(73, 90);
-                        RowPosition[i][j] = rand.Next(1, 5);
-                    }
+                    //     ColPosition[i][j] = rand.Next(19, 36);
+                    //     RowPosition[i][j] = rand.Next(36, 40);
+                    // }
+                    // else if (i == 2)
+                    // {
+                    //     ColPosition[i][j] = rand.Next(10, 27);
+                    //     RowPosition[i][j] = rand.Next(31, 35);
+                    // }
+                    // else if (i == 3)
+                    // {
+                    //     ColPosition[i][j] = rand.Next(55, 72);
+                    //     RowPosition[i][j] = rand.Next(31, 35);
+                    // }
+                    // else if (i == 4)
+                    // {
+                    //     ColPosition[i][j] = rand.Next(64, 90);
+                    //     RowPosition[i][j] = rand.Next(26, 30);
+                    // }
+                    // else if (i == 5)
+                    // {
+                    //     ColPosition[i][j] = rand.Next(28, 54);
+                    //     RowPosition[i][j] = rand.Next(21, 25);
+                    // }
+                    // else if (i == 6)
+                    // {
+                    //     ColPosition[i][j] = rand.Next(55, 72);
+                    //     RowPosition[i][j] = rand.Next(16, 20);
+                    // }
+                    // else if (i == 7)
+                    // {
+                    //     ColPosition[i][j] = rand.Next(46, 63);
+                    //     RowPosition[i][j] = rand.Next(11, 15);
+                    // }
+                    // else if (i == 8)
+                    // {
+                    //     ColPosition[i][j] = rand.Next(37, 54);
+                    //     RowPosition[i][j] = rand.Next(6, 10);
+                    // }
+                    // else if (i == 9)
+                    // {
+                    //     ColPosition[i][j] = rand.Next(73, 90);
+                    //     RowPosition[i][j] = rand.Next(1, 5);
+                    // }
                 }
             }
         }

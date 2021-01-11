@@ -5,9 +5,9 @@ namespace GIK299_projekt_grupp4
     public class Hero
     {
         private static string name;
+        private string heroMarker;
         public int Col;
         public int Row;
-        private string heroMarker;
         public int NumberOfKeys;
         public int Health;
         public Hero(int initialX, int initialY)
