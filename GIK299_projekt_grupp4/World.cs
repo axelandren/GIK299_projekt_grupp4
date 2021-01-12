@@ -22,7 +22,28 @@ namespace GIK299_projekt_grupp4
             {
                 for (int j = 0; j < cols; j++)
                 {
-                    Console.Write("{0}", map[i, j]);
+                    if (map[i, j] == "K")
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.Write("{0}", map[i, j]);
+                        Console.ResetColor();
+                    }
+                    else if (map[i, j] == "E")
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write("{0}", map[i, j]);
+                        Console.ResetColor();
+                    }
+                    else if (map[i, j] == "O")
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Write("{0}", map[i, j]);
+                        Console.ResetColor();
+                    }
+                    else
+                    {
+                        Console.Write("{0}", map[i, j]);
+                    }
                 }
                 Console.Write("\n");
             }
