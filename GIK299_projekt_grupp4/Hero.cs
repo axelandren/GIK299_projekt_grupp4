@@ -5,7 +5,7 @@ namespace GIK299_projekt_grupp4
     public class Hero
     {
         private static string name;
-        private string heroMarker;
+        public static string HeroMarker;
         public int Col;
         public int Row;
         public int NumberOfKeys;
@@ -16,7 +16,7 @@ namespace GIK299_projekt_grupp4
             Row = initialY;
             NumberOfKeys = 0;
             Health = 100;
-            heroMarker = "O";
+            HeroMarker = "O";
         }
         public static void SetHeroName()
         {
@@ -26,13 +26,6 @@ namespace GIK299_projekt_grupp4
         public string GetName()
         {
             return name;
-        }
-        public void DrawHero()
-        {
-            Console.SetCursorPosition(Col, Row);
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write(heroMarker);
-            Console.ResetColor();
         }
     }
 }
