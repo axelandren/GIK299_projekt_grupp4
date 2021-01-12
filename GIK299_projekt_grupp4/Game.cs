@@ -2,8 +2,9 @@ using System;
 
 namespace GIK299_projekt_grupp4
 {
-    class Game : World
+    class Game
     {
+        public World theWorld;
         public Hero currentHero;
         public Enemy enemy;
         public void Menu()
@@ -31,7 +32,8 @@ namespace GIK299_projekt_grupp4
         public void Start()
         {
             Console.CursorVisible = false;
-            currentHero = new Hero(1, 49);
+            theWorld = new World();
+            currentHero = new Hero(1, 39);
             enemy = new Enemy();
             RunGameLoop();
         }
@@ -43,7 +45,7 @@ namespace GIK299_projekt_grupp4
                 PlayerInput();
 
                 //Kolla om heron har nått exit / hittat nyckel / dött
-                string stringAtPlayerPos = GetStringAt(currentHero.Col, currentHero.Row);
+                string stringAtPlayerPos = theWorld.GetStringAt(currentHero.Col, currentHero.Row);
                 if (stringAtPlayerPos == "F" && currentHero.NumberOfKeys == 10)
                 {
                     GameFinishInfo();
@@ -54,7 +56,7 @@ namespace GIK299_projekt_grupp4
                     Console.WriteLine(" You found one of the keys!");
                     System.Threading.Thread.Sleep(1500);
                     currentHero.NumberOfKeys += 1;
-                    ChangeStringToEmpty(currentHero.Col, currentHero.Row);
+                    theWorld.ChangeStringToEmpty(currentHero.Col, currentHero.Row);
                 }
                 else if (currentHero.Health < 0)
                 {
@@ -66,7 +68,7 @@ namespace GIK299_projekt_grupp4
         private void DrawGame()
         {
             Console.Clear();
-            DrawWorld();
+            theWorld.DrawWorld();
             Console.WriteLine("\nYour hero: {0}", currentHero.GetName());
             if (currentHero.NumberOfKeys < 10)
             {
@@ -81,7 +83,7 @@ namespace GIK299_projekt_grupp4
             enemy.DrawEnemies();
             currentHero.DrawHero();
 
-            string stringAtPlayerPos = GetStringAt(currentHero.Col, currentHero.Row);
+            string stringAtPlayerPos = theWorld.GetStringAt(currentHero.Col, currentHero.Row);
             if (stringAtPlayerPos == "F" && currentHero.NumberOfKeys < 10)
             {
                 Console.WriteLine("\n You don't have all the keys! Come back when you've collected them all");
@@ -168,7 +170,7 @@ namespace GIK299_projekt_grupp4
             {
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
                 key = keyInfo.Key;
-            } while (System.Console.KeyAvailable);
+            } while (Console.KeyAvailable);
 
             switch (key)
             {
@@ -193,14 +195,14 @@ namespace GIK299_projekt_grupp4
         }
         private void WalkUpOrDown(int direction)
         {
-            if (IsWalkable(currentHero.Col, currentHero.Row + direction))
+            if (theWorld.IsWalkable(currentHero.Col, currentHero.Row + direction))
             {
                 currentHero.Row += direction;
             }
         }
         private void WalkLeftOrRight(int direction)
         {
-            if (IsWalkable(currentHero.Col + direction, currentHero.Row))
+            if (theWorld.IsWalkable(currentHero.Col + direction, currentHero.Row))
             {
                 currentHero.Col += direction;
             }
@@ -209,7 +211,7 @@ namespace GIK299_projekt_grupp4
         {
             for (int i = 0; i < 10; i++)
             {
-                CheckIfInsideRoom(enemy.RoomColIndex[i, 0], enemy.RoomColIndex[i, 1], enemy.RoomRowIndex[i, 0], enemy.RoomRowIndex[i, 1], i);
+                CheckIfInsideRoom(enemy.RoomCol[i, 0], enemy.RoomCol[i, 1], enemy.RoomRow[i, 0], enemy.RoomRow[i, 1], i);
             }
         }
         private void CheckIfInsideRoom(int colStart, int colFinish, int rowStart, int rowFinish, int roomIndex)
@@ -224,7 +226,7 @@ namespace GIK299_projekt_grupp4
             bool actionMenuActive = true;
             while (actionMenuActive)
             {
-                Console.SetCursorPosition(95, currentHero.Row);
+                Console.SetCursorPosition(92, currentHero.Row);
                 Console.Write("Do you want to attack or run? ");
                 switch (Console.ReadLine().ToLower())
                 {
@@ -234,38 +236,38 @@ namespace GIK299_projekt_grupp4
                         actionMenuActive = false;
                         break;
                     case "run":
-                        Console.SetCursorPosition(95, currentHero.Row + 1);
-                        Console.WriteLine("\t\tDude I'm so fucking scared.. lets run");
+                        Console.SetCursorPosition(92, currentHero.Row + 1);
+                        Console.Write("\t\tDude I'm so fucking scared.. lets run");
                         System.Threading.Thread.Sleep(2000);
                         actionMenuActive = false;
                         break;
                     default:
-                        Console.SetCursorPosition(95, currentHero.Row + 1);
-                        Console.WriteLine("\t\tAttack or run.. There is no other option");
+                        Console.SetCursorPosition(92, currentHero.Row + 1);
+                        Console.Write("\t\tAttack or run.. There is no other option");
                         break;
                 }
             }
         }
         private void Attack()
         {
-            Console.SetCursorPosition(95, currentHero.Row + 1);
-            Console.WriteLine("\t\tDieeeee motherfuckeeeeeeer");
-            System.Threading.Thread.Sleep(2000);
+            Console.SetCursorPosition(92, currentHero.Row + 1);
+            Console.Write("\t\tDieeeee motherfuckeeeeeeer");
+            System.Threading.Thread.Sleep(1500);
             Random rand = new Random();
             int riskToLoseHealth = rand.Next(1, 6);
             if (riskToLoseHealth == 5)
             {
                 currentHero.Health -= 10;
-                Console.SetCursorPosition(95, currentHero.Row + 2);
-                Console.WriteLine("\t\tDamage taken.. -10 Health");
+                Console.SetCursorPosition(92, currentHero.Row + 2);
+                Console.Write("\t\tDamage taken.. -10 Health");
                 System.Threading.Thread.Sleep(2000);
             }
             int enemyDropHealth = rand.Next(1, 11);
             if (enemyDropHealth == 10)
             {
                 currentHero.Health += 10;
-                Console.SetCursorPosition(95, currentHero.Row + 3);
-                Console.WriteLine("\t\tLifesteal! +10 Health");
+                Console.SetCursorPosition(92, currentHero.Row + 3);
+                Console.Write("\t\tLifesteal! +10 Health");
                 System.Threading.Thread.Sleep(2000);
                 if (currentHero.Health > 100)
                 {
