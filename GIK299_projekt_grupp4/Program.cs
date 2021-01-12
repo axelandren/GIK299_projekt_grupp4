@@ -6,14 +6,9 @@ namespace GIK299_projekt_grupp4
     {
         static void Main(string[] args)
         {
-            ChangeConsoleFeatures();
+            Console.Title = "Best Game In The World";
             Game newGame = new Game();
             newGame.Menu();
-        }
-        private static void ChangeConsoleFeatures()
-        {
-            Console.Title = "Best Game In The World";
-            Console.SetWindowSize(140, 50);
         }
     }
 }

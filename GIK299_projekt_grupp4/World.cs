@@ -4,7 +4,7 @@ namespace GIK299_projekt_grupp4
 {
     public class World
     {
-        private string[,] map;
+        private static string[,] map;
         private int rows;
         private int cols;
         private string keyMarker;
@@ -45,9 +45,17 @@ namespace GIK299_projekt_grupp4
         {
             return map[y, x];
         }
-        public void ChangeStringToEmpty(int x, int y)
+        public static void ChangeStringToEmpty(int x, int y)
         {
             map[y, x] = " ";
+        }
+        public static void ChangeStringToHero(int x, int y)
+        {
+            map[y, x] = Hero.HeroMarker;
+        }
+        public static void ChangeStringToEnemy(int x, int y)
+        {
+            map[y, x] = Enemy.EnemyMarker;
         }
         public bool IsWalkable(int col, int row)
         {
