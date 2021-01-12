@@ -32,7 +32,7 @@ namespace GIK299_projekt_grupp4
             Random rand = new Random();
             for (int i = 0; i < 10;)
             {
-                int row = rand.Next(1, rows - 6);
+                int row = rand.Next(1, rows - 4);
                 int col = rand.Next(1, cols - 1);
                 if (map[row, col] == " ")
                 {
