@@ -13,7 +13,7 @@ namespace GIK299_projekt_grupp4
         private static void ChangeConsoleFeatures()
         {
             Console.Title = "Best Game In The World";
-            Console.SetWindowSize(180, 60);
+            Console.SetWindowSize(140, 50);
         }
     }
 }

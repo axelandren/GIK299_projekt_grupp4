@@ -133,22 +133,22 @@ namespace GIK299_projekt_grupp4
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(@"
-  ________  ________  ________   ________  ________  ________  _________  ___  ___  ___       ________  _________  ___  ________  ________   ________      
- |\   ____\|\   __  \|\   ___  \|\   ____\|\   __  \|\   __  \|\___   ___\\  \|\  \|\  \     |\   __  \|\___   ___\\  \|\   __  \|\   ___  \|\   ____\     
- \ \  \___|\ \  \|\  \ \  \\ \  \ \  \___|\ \  \|\  \ \  \|\  \|___ \  \_\ \  \\\  \ \  \    \ \  \|\  \|___ \  \_\ \  \ \  \|\  \ \  \\ \  \ \  \___|_    
-  \ \  \    \ \  \\\  \ \  \\ \  \ \  \  __\ \   _  _\ \   __  \   \ \  \ \ \  \\\  \ \  \    \ \   __  \   \ \  \ \ \  \ \  \\\  \ \  \\ \  \ \_____  \   
-   \ \  \____\ \  \\\  \ \  \\ \  \ \  \|\  \ \  \\  \\ \  \ \  \   \ \  \ \ \  \\\  \ \  \____\ \  \ \  \   \ \  \ \ \  \ \  \\\  \ \  \\ \  \|____|\  \  
-    \ \_______\ \_______\ \__\\ \__\ \_______\ \__\\ _\\ \__\ \__\   \ \__\ \ \_______\ \_______\ \__\ \__\   \ \__\ \ \__\ \_______\ \__\\ \__\____\_\  \ 
-     \|_______|\|_______|\|__| \|__|\|_______|\|__|\|__|\|__|\|__|    \|__|  \|_______|\|_______|\|__|\|__|    \|__|  \|__|\|_______|\|__| \|__|\_________\
-                                                                                                                                               \|_________/
-  ___    ___ ________  ___  ___          ___       __   ________  ________           _________  ___  ___  _______           ________  ________  _____ ______   _______      
- |\  \  /  /|\   __  \|\  \|\  \        |\  \     |\  \|\   __  \|\   ___  \        |\___   ___\\  \|\  \|\  ___ \         |\   ____\|\   __  \|\   _ \  _   \|\  ___ \     
- \ \  \/  / | \  \|\  \ \  \\\  \       \ \  \    \ \  \ \  \|\  \ \  \\ \  \       \|___ \  \_\ \  \\\  \ \   __/|        \ \  \___|\ \  \|\  \ \  \\\__\ \  \ \   __/|    
-  \ \    / / \ \  \\\  \ \  \\\  \       \ \  \  __\ \  \ \  \\\  \ \  \\ \  \           \ \  \ \ \   __  \ \  \_|/__       \ \  \  __\ \   __  \ \  \\|__| \  \ \  \_|/__  
-   \/  /  /   \ \  \\\  \ \  \\\  \       \ \  \|\__\_\  \ \  \\\  \ \  \\ \  \           \ \  \ \ \  \ \  \ \  \_|\ \       \ \  \|\  \ \  \ \  \ \  \    \ \  \ \  \_|\ \ 
- __/  / /      \ \_______\ \_______\       \ \____________\ \_______\ \__\\ \__\           \ \__\ \ \__\ \__\ \_______\       \ \_______\ \__\ \__\ \__\    \ \__\ \_______\
-|\___/ /        \|_______|\|_______|        \|____________|\|_______|\|__| \|__|            \|__|  \|__|\|__|\|_______|        \|_______|\|__|\|__|\|__|     \|__|\|_______|
-\|___|/                                                                                                                                                                     ");
+  ________  ________  ________   ________  ________  ________  _________  ________      
+ |\   ____\|\   __  \|\   ___  \|\   ____\|\   __  \|\   __  \|\___   ___\\   ____\     
+ \ \  \___|\ \  \|\  \ \  \\ \  \ \  \___|\ \  \|\  \ \  \|\  \|___ \  \_\ \  \___|_    
+  \ \  \    \ \  \\\  \ \  \\ \  \ \  \  __\ \   _  _\ \   __  \   \ \  \ \ \_____  \   
+   \ \  \____\ \  \\\  \ \  \\ \  \ \  \|\  \ \  \\  \\ \  \ \  \   \ \  \ \|____|\  \  
+    \ \_______\ \_______\ \__\\ \__\ \_______\ \__\\ _\\ \__\ \__\   \ \__\  ____\_\  \ 
+     \|_______|\|_______|\|__| \|__|\|_______|\|__|\|__|\|__|\|__|    \|__| |\_________\
+                                                                            \|_________|
+        ___    ___ ________  ___  ___          ___       __   ________  ________      
+       |\  \  /  /|\   __  \|\  \|\  \        |\  \     |\  \|\   __  \|\   ___  \    
+       \ \  \/  / | \  \|\  \ \  \\\  \       \ \  \    \ \  \ \  \|\  \ \  \\ \  \   
+        \ \    / / \ \  \\\  \ \  \\\  \       \ \  \  __\ \  \ \  \\\  \ \  \\ \  \  
+         \/  /  /   \ \  \\\  \ \  \\\  \       \ \  \|\__\_\  \ \  \\\  \ \  \\ \  \ 
+       __/  / /      \ \_______\ \_______\       \ \____________\ \_______\ \__\\ \__\
+      |\___/ /        \|_______|\|_______|        \|____________|\|_______|\|__| \|__|
+      \|___|/                                                                         ");
             Console.WriteLine("\n\n\t\tPress any key to continue...");
             Console.ResetColor();
             Console.ReadKey(true);
@@ -226,7 +226,7 @@ namespace GIK299_projekt_grupp4
             bool actionMenuActive = true;
             while (actionMenuActive)
             {
-                Console.SetCursorPosition(92, currentHero.Row);
+                Console.SetCursorPosition(91, currentHero.Row);
                 Console.Write("Do you want to attack or run? ");
                 switch (Console.ReadLine().ToLower())
                 {
@@ -236,13 +236,13 @@ namespace GIK299_projekt_grupp4
                         actionMenuActive = false;
                         break;
                     case "run":
-                        Console.SetCursorPosition(92, currentHero.Row + 1);
+                        Console.SetCursorPosition(91, currentHero.Row + 1);
                         Console.Write("\t\tDude I'm so fucking scared.. lets run");
                         System.Threading.Thread.Sleep(2000);
                         actionMenuActive = false;
                         break;
                     default:
-                        Console.SetCursorPosition(92, currentHero.Row + 1);
+                        Console.SetCursorPosition(91, currentHero.Row + 1);
                         Console.Write("\t\tAttack or run.. There is no other option");
                         break;
                 }
@@ -250,15 +250,15 @@ namespace GIK299_projekt_grupp4
         }
         private void Attack()
         {
-            Console.SetCursorPosition(92, currentHero.Row + 1);
-            Console.Write("\t\tDieeeee motherfuckeeeeeeer");
+            Console.SetCursorPosition(91, currentHero.Row + 1);
+            Console.Write("\t\tDiee motherfuckeeer");
             System.Threading.Thread.Sleep(1500);
             Random rand = new Random();
             int riskToLoseHealth = rand.Next(1, 6);
             if (riskToLoseHealth == 5)
             {
                 currentHero.Health -= 10;
-                Console.SetCursorPosition(92, currentHero.Row + 2);
+                Console.SetCursorPosition(91, currentHero.Row + 2);
                 Console.Write("\t\tDamage taken.. -10 Health");
                 System.Threading.Thread.Sleep(2000);
             }
@@ -266,7 +266,7 @@ namespace GIK299_projekt_grupp4
             if (enemyDropHealth == 10)
             {
                 currentHero.Health += 10;
-                Console.SetCursorPosition(92, currentHero.Row + 3);
+                Console.SetCursorPosition(91, currentHero.Row + 3);
                 Console.Write("\t\tLifesteal! +10 Health");
                 System.Threading.Thread.Sleep(2000);
                 if (currentHero.Health > 100)
